@@ -1,0 +1,10 @@
+.container
+{
+    border-radius: 5%;
+}
+
+#content
+{
+    height: 250px;
+    overflow-y: auto;
+}

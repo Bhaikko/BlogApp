@@ -4,11 +4,19 @@ const server = express();
 server.set("view engine", "hbs");
 
 server.use("/", express.static("./public"));
+server.use("/add", express.static("./public/add.html"));
 
 server.get("/", function(req, res)
 {
     res.render("index");
 });
+
+server.post("/", function(req, res)
+{
+    res.redirect("/");
+})
+
+
 
 
 let port = 4000;
