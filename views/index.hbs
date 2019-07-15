@@ -15,38 +15,36 @@
                 <button type="button" class="btn btn-outline-primary mr-5" ><a href="/">Home</a></button>
                 <button type="button" class="btn btn-primary"><a href="/add" class="text-light">Add New Blog</a></button>
                 <div class="scrollable">
-                    <li class="nav-item mt-4 mb-4">
-                        <a class="nav-link" href="#">Blog 1</a>
-                    </li>
-                    <li class="nav-item mb-4">
-                        <a class="nav-link" href="#">Blog 2</a>
-                    </li>
-                    <li class="nav-item mb-4">
-                        <a class="nav-link" href="#">Blog 2</a>
-                    </li>
-                    <li class="nav-item mb-4">
-                        <a class="nav-link" href="#">Blog 2</a>
-                    </li>
-                    <li class="nav-item mb-4">
-                        <a class="nav-link" href="#">Blog 2</a>
-                    </li>
-                    <li class="nav-item mb-4">
-                        <a class="nav-link" href="#">Blog 2</a>
-                    </li>         
+                    {{#each blogs as |blog|}}
+                        <li class="nav-item mt-4 mb-4">
+                            <a class="nav-link" href="/?id={{blog.id}}">{{blog.title}}</a>
+                        </li>
+                    {{/each}}
                 </div>
             </div>
             <div class="col-1">
                 <div class="divider"></div>
             </div>
             <div class="col-7">
-                <div class="card" style="width: 40rem;">
-                <div class="card-body">
-                    <h5 class="card-title">Blog title</h5>
-                    <h6 class="card-subtitle mb-2 text-muted">Blog subtitle</h6>
-                    <p class="card-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-                    <a href="#" class="card-link">Author Profile</a>
-                </div>
-                </div>
+                {{#if selectedBlog}}
+                    <div class="card" style="width: 40rem;">
+                        <div class="card-body">
+                            <h5 class="card-title">{{selectedBlog.title}}</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">{{selectedBlog.subHeading}}</h6>
+                            <p class="card-text">{{selectedBlog.content}}</p>
+                            <a href="#" class="card-link">{{selectedBlog.author}}</a>
+                        </div>
+                    </div>
+                {{else}}
+                    <div class="card" style="width: 40rem;">
+                        <div class="card-body">
+                            <h5 class="card-title">Welcome To Bloggers</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">A Blog Web Application</h6>
+                            <p class="card-text">Post Your Views Even If No One Cares.</p>
+                            <a href="#" class="card-link">Who Cares</a>
+                        </div>
+                    </div>
+                {{/if}}
             </div>
         </div>
     </div>
